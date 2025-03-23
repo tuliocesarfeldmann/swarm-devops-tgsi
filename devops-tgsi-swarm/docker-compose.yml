@@ -1,16 +1,16 @@
 wservices:
-  rabbitmq-mensageria:
+  rabbitmq:
     image: tulioufsm/sistema-microsservicos-financeiro:rabbitmq-
-    container_name: rabbitmq-mensageria
+    container_name: rabbitmq
     environment:
       RABBIT_DEFINITIONS: rabbit_definitions.json
     ports:
       - "15672:15672"
       - "5672:5672"
 
-  redis-service:
+  redis:
     image: tulioufsm/sistema-microsservicos-financeiro:redis-
-    container_name: redis-service
+    container_name: redis
     ports:
       - "6379:6379"
 
@@ -23,8 +23,8 @@ wservices:
       SPRING_RABBITMQ_USERNAME: guest
       SPRING_RABBITMQ_PASSWORD: guest
     depends_on:
-      - rabbitmq-mensageria
-      - redis-service
+      - rabbitmq
+      - redis
     ports:
       - "9991:9991"
 
@@ -40,8 +40,8 @@ wservices:
       SPRING_REDIS_PORT: 6379
       SPRING_REDIS_PASSWORD: trabalho_sid
     depends_on:
-      - rabbitmq-mensageria
-      - redis-service
+      - rabbitmq
+      - redis
     ports:
       - "9992:9992"
 
@@ -57,8 +57,8 @@ wservices:
       SPRING_REDIS_PORT: 6379
       SPRING_REDIS_PASSWORD: trabalho_sid
     depends_on:
-      - rabbitmq-mensageria
-      - redis-service
+      - rabbitmq
+      - redis
     ports:
       - "9993:9993"
 
