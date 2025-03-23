@@ -1,6 +1,6 @@
 services:
   rabbitmq-mensageria:
-    image: tulioufsm/projeto-sid:rabbitmq-mensageria-1.0.0
+    image: tulioufsm/sistema-microsservicos-financeiro:rabbitmq-1.0.0
     container_name: rabbitmq-mensageria
     environment:
       RABBIT_DEFINITIONS: rabbit_definitions.json
@@ -9,13 +9,13 @@ services:
       - "5672:5672"
 
   redis-service:
-    image: tulioufsm/projeto-sid:redis-1.0.0
+    image: tulioufsm/sistema-microsservicos-financeiro:redis-1.0.0
     container_name: redis-service
     ports:
       - "6379:6379"
 
   gateway:
-    image: tulioufsm/projeto-sid:gateway-1.0.0
+    image: tulioufsm/sistema-microsservicos-financeiro:gateway-1.0.0
     container_name: gateway
     environment:
       SPRING_RABBITMQ_HOST: rabbitmq-mensageria
@@ -29,7 +29,7 @@ services:
       - "9991:9991"
 
   consulta:
-    image: tulioufsm/projeto-sid:consulta-1.0.0
+    image: tulioufsm/sistema-microsservicos-financeiro:consulta-1.0.0
     container_name: consulta
     environment:
       SPRING_RABBITMQ_HOST: rabbitmq-mensageria
@@ -46,7 +46,7 @@ services:
       - "9992:9992"
 
   saque:
-    image: tulioufsm/projeto-sid:saque-1.0.0
+    image: tulioufsm/sistema-microsservicos-financeiro:saque-1.0.0
     container_name: saque
     environment:
       SPRING_RABBITMQ_HOST: rabbitmq-mensageria
