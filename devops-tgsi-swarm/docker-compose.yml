@@ -1,4 +1,4 @@
-wservices:
+services:
   rabbitmq:
     image: tulioufsm/microsservicos-financeiro-demo:rabbitmq-1.0.0
     container_name: rabbitmq
