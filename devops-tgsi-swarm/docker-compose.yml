@@ -1,4 +1,4 @@
-services:
+wservices:
   rabbitmq-mensageria:
     image: tulioufsm/sistema-microsservicos-financeiro:rabbitmq-
     container_name: rabbitmq-mensageria
@@ -61,4 +61,4 @@ services:
       - redis-service
     ports:
       - "9993:9993"
-TESTE!!!!
+
