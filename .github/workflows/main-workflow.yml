@@ -29,6 +29,7 @@ jobs:
             echo "Atualizando o repositório..."
             cd swarm-devops-tgsi
             git pull origin main
+            sudo docker rm devops-tgsi
           else
             echo "Clonando o repositório..."
             git clone https://${{ secrets.TOKEN_GITHUB }}@github.com/tuliocesarfeldmann/swarm-devops-tgsi.git
