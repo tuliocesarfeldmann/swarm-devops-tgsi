@@ -36,5 +36,5 @@ jobs:
           fi
 
           echo "Subindo os serviços..."
-          docker stack deploy -c docker-compose.yml devops-tgsi
+          sudo docker stack deploy -c docker-compose.yml devops-tgsi
         EOF
