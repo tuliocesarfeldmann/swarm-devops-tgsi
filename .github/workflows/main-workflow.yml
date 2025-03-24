@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    name: Update Swarm Cluster
+    name: Update App on Swarm Cluster
     runs-on: ubuntu-latest
 
     steps:
