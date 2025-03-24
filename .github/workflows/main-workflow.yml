@@ -32,9 +32,10 @@ jobs:
           else
             echo "Clonando o repositório..."
             git clone https://${{ secrets.TOKEN_GITHUB }}@github.com/tuliocesarfeldmann/swarm-devops-tgsi.git
-            cd ./swarm-devops-tgsi/devops-tgsi
+            cd swarm-devops-tgsi
           fi
 
+          cd devops-tgsi
           echo "Subindo os serviços..."
           docker stack deploy -c docker-compose.yml devops-tgsi
         EOF
