@@ -1,6 +1,6 @@
 services:
   rabbitmq:
-    image: tulioufsm/microsservicos-financeiro-demo:rabbitmq-1.0.0
+    image: tulioufsm/microsservicos-financeiro-demo:rabbitmq-
     container_name: rabbitmq
     environment:
       RABBIT_DEFINITIONS: rabbit_definitions.json
@@ -9,13 +9,13 @@ services:
       - "5672:5672"
 
   redis:
-    image: tulioufsm/microsservicos-financeiro-demo:redis-1.0.0
+    image: tulioufsm/microsservicos-financeiro-demo:redis-
     container_name: redis
     ports:
       - "6379:6379"
 
   gateway:
-    image: tulioufsm/microsservicos-financeiro-demo:gateway-1.0.0
+    image: tulioufsm/microsservicos-financeiro-demo:gateway-
     container_name: gateway
     environment:
       SPRING_RABBITMQ_HOST: rabbitmq-mensageria
@@ -29,7 +29,7 @@ services:
       - "9991:9991"
 
   consulta:
-    image: tulioufsm/microsservicos-financeiro-demo:consulta-1.0.0
+    image: tulioufsm/microsservicos-financeiro-demo:consulta-
     container_name: consulta
     environment:
       SPRING_RABBITMQ_HOST: rabbitmq-mensageria
@@ -46,7 +46,7 @@ services:
       - "9992:9992"
 
   saque:
-    image: tulioufsm/microsservicos-financeiro-demo:saque-1.0.0
+    image: tulioufsm/microsservicos-financeiro-demo:saque-
     container_name: saque
     environment:
       SPRING_RABBITMQ_HOST: rabbitmq-mensageria
