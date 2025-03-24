@@ -1,0 +1,33 @@
+jobs:
+  deploy:
+    name: Update Swarm Cluster
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.9.1
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to server
+      run: |
+        ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.SWARM_SERVER_IP }} << 'EOF'
+
+          cd /data/swarm/
+
+          if [ -d "swarm-devops-tgsi" ]; then
+            echo "Atualizando o repositório..."
+            cd swarm-devops-tgsi
+            git pull origin main
+          else
+            echo "Clonando o repositório..."
+            git clone https://github.com/tuliocesarfeldmann/devops-tgsi-swarm.git
+            cd devops-tgsi-swarm
+          fi
+
+          echo "Subindo os serviços..."
+          docker stack deploy -c docker-compose.yml devops-tgsi
+        EOF
