@@ -31,8 +31,8 @@ jobs:
             git pull origin main
           else
             echo "Clonando o repositório..."
-            git clone https://github.com/tuliocesarfeldmann/devops-tgsi-swarm.git
-            cd devops-tgsi-swarm
+            git clone https://${{ secrets.TOKEN_GITHUB }}@github.com/tuliocesarfeldmann/swarm-devops-tgsi.git
+            cd ./swarm-devops-tgsi/devops-tgsi
           fi
 
           echo "Subindo os serviços..."
