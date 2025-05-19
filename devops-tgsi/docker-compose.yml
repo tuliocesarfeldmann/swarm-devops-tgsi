@@ -18,7 +18,7 @@ services:
     image: tulioufsm/microsservicos-financeiro-demo:gateway-1.0.0
     container_name: gateway
     environment:
-      SPRING_RABBITMQ_HOST: rabbitmq-mensageria
+      SPRING_RABBITMQ_HOST: rabbitmq
       SPRING_RABBITMQ_PORT: 5672
       SPRING_RABBITMQ_USERNAME: guest
       SPRING_RABBITMQ_PASSWORD: guest
@@ -32,7 +32,7 @@ services:
     image: tulioufsm/microsservicos-financeiro-demo:consulta-1.0.0
     container_name: consulta
     environment:
-      SPRING_RABBITMQ_HOST: rabbitmq-mensageria
+      SPRING_RABBITMQ_HOST: rabbitmq
       SPRING_RABBITMQ_PORT: 5672
       SPRING_RABBITMQ_USERNAME: guest
       SPRING_RABBITMQ_PASSWORD: guest
@@ -49,7 +49,7 @@ services:
     image: tulioufsm/microsservicos-financeiro-demo:saque-1.0.0
     container_name: saque
     environment:
-      SPRING_RABBITMQ_HOST: rabbitmq-mensageria
+      SPRING_RABBITMQ_HOST: rabbitmq
       SPRING_RABBITMQ_PORT: 5672
       SPRING_RABBITMQ_USERNAME: guest
       SPRING_RABBITMQ_PASSWORD: guest
